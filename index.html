@@ -6,120 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/main.css" />
-    <title>MC Tiers</title>
+    <title>MC Tiers Leaderboard</title>
 </head>
 <body>
     <div class="content">
         <header class="navbar">
-            <div class="nav-title">MCTIERS LEADERBOARD</div>
-            <div class="nav-buttons">
-                <button class="nav-button"><i class="ri-search-line"></i></button>
-                <button class="nav-button"><i class="ri-account-circle-fill"></i></button>
-            </div>
+            <h1 class="title">MC TIERS LEADERBOARD</h1>
+            <button class="add-player-btn" onclick="openAddPlayerModal()">
+                <i class="ri-add-line"></i> Add Player
+            </button>
         </header>
 
-        <section class="container">
-            <div class="controls">
-                <select class="category-select">
-                    <option value="vanilla">VANILLA</option>
-                    <option value="sword">SWORD</option>
-                    <option value="pot">POT</option>
-                    <option value="uhc">UHC</option>
-                    <option value="axe">AXE</option>
-                </select>
-                <select class="sort-select">
-                    <option value="rank">BY RANK</option>
-                    <option value="name">BY NAME</option>
-                    <option value="date">BY DATE</option>
-                </select>
-            </div>
-
+        <main class="container">
             <div class="leaderboard-wrapper">
                 <table class="leaderboard">
                     <thead>
                         <tr>
                             <th>RANK</th>
-                            <th>PLAYER</th>
+                            <th>PLAYER NAME</th>
                             <th>TIER</th>
                             <th>POINTS</th>
-                            <th>WINS</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody id="leaderboard-body">
-                        <tr>
-                            <td>1</td>
-                            <td>DrWalksy</td>
-                            <td>S+</td>
-                            <td>9500</td>
-                            <td>250</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>NoobMaster</td>
-                            <td>S</td>
-                            <td>8900</td>
-                            <td>220</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>SwordKing</td>
-                            <td>A+</td>
-                            <td>8200</td>
-                            <td>195</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>PvPLegend</td>
-                            <td>A</td>
-                            <td>7600</td>
-                            <td>180</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>SwiftArcher</td>
-                            <td>A</td>
-                            <td>7200</td>
-                            <td>165</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>BlockMaster</td>
-                            <td>B+</td>
-                            <td>6500</td>
-                            <td>145</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>CombatPro</td>
-                            <td>B</td>
-                            <td>5900</td>
-                            <td>130</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>MineWarrior</td>
-                            <td>B</td>
-                            <td>5300</td>
-                            <td>110</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>FastClicker</td>
-                            <td>C+</td>
-                            <td>4700</td>
-                            <td>95</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>NewPlayer99</td>
-                            <td>C</td>
-                            <td>3900</td>
-                            <td>75</td>
-                        </tr>
+                        <!-- Players will be added here -->
                     </tbody>
                 </table>
+                <div id="empty-state" class="empty-state">
+                    <p>No players yet. Click "Add Player" to get started!</p>
+                </div>
             </div>
-        </section>
+        </main>
     </div>
+
+    <!-- Add Player Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Player</h2>
+                <button class="close-btn" onclick="closeAddPlayerModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="player-name" placeholder="Enter player name" class="input-field">
+                <select id="player-rank" class="input-field">
+                    <option value="">Select a rank</option>
+                    <option value="LT5">LT5 (1 Point)</option>
+                    <option value="HT5">HT5 (2 Points)</option>
+                    <option value="LT4">LT4 (3 Points)</option>
+                    <option value="HT4">HT4 (4 Points)</option>
+                    <option value="LT3">LT3 (6 Points)</option>
+                    <option value="HT3">HT3 (10 Points)</option>
+                    <option value="LT2">LT2 (20 Points)</option>
+                    <option value="HT2">HT2 (30 Points)</option>
+                    <option value="LT1">LT1 (45 Points)</option>
+                    <option value="HT1">HT1 (60 Points)</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeAddPlayerModal()">Cancel</button>
+                <button class="btn-add" onclick="addPlayer()">Add Player</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/script.js"></script>
 </body>
 </html>
