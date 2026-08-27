@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <title>MC Tiers</title>
+</head>
+<body>
+    <div class="content">
+        <header class="navbar">
+            <ul class="nav-elements">
+                <li>
+                    <div class="nav-button">
+                        <i class="ri-search-line"></i>
+                        <span>SEARCH</span>
+                    </div>
+                </li>
+                <li class="title">MCTIERS.COM</li>
+                <li>
+                    <div class="nav-button">
+                        <i class="ri-account-circle-fill"></i>
+                        <span>LOG IN</span>
+                    </div>
+                </li>
+            </ul>
+        </header>
+
+        <section class="table">
+            <section class="sortbar">
+                    <select class="category-sorting">
+                        <option value="vanilla" class="select-option"> VANILLA RANKINGS </option>
+                        <option value="sword" class="select-option"> SWORD RANKINGS </option>
+                        <option value="pot" class="select-option"> POT RANKINGS </option>
+                        <option value="netherite-pot" class="select-option"> NETHERITE POT RANKINGS </option>
+                        <option value="uhc" class="select-option"> UHC RANKINGS </option>
+                        <option value="axe" class="select-option"> AXE RANKINGS </option>
+                        <option value="smp" class="select-option"> SMP RANKINGS </option>
+                        <option value="retired-players" class="select-option"> RETIRED PLAYERS RANKINGS </option>
+                        <option value="blacklisted-players" class="select-option"> BLACKLISTED PLAYERS RANKINGS </option>
+                    </select>
+
+                <div class="separator first-sep"></div>
+                <select class="filter-sorting">
+                    <option value="name" class="select-option">NAME</option>
+                    <option value="date" class="select-option">DATE</option>
+                </select>
+                <div class="separator second-sep"></div>
+                <div class="info-sortbar">INFO</div>
+            </section>
+            <section class="list-names">
+                <div class="list-name non-responsive">TIER 1</div>
+                <div class="list-name non-responsive">TIER 2</div>
+                <div class="list-name non-responsive">TIER 3</div>
+                <div class="list-name non-responsive">TIER 4</div>
+                <div class="list-name non-responsive">TIER 5</div>
+            </section>
+            <select class="name-dropdown">
+                <option value="tier-1" class="tier-option">TIER 1</option>
+                <option value="tier-2" class="tier-option">TIER 2</option>
+                <option value="tier-3" class="tier-option">TIER 3</option>
+                <option value="tier-4" class="tier-option">TIER 4</option>
+                <option value="tier-5" class="tier-option">TIER 5</option>
+            </select>
+            <section class="player-lists">
+                <ul class="player-list responsive-column" class="responsive-column"></ul>
+                <ul class="player-list non-responsive"></ul>
+                <ul class="player-list non-responsive"></ul>
+                <ul class="player-list non-responsive"></ul>
+                <ul class="player-list non-responsive"></ul>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
