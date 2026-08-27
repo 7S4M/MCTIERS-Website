@@ -52,6 +52,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: "Poppins", sans-serif;
+    white-space: nowrap;
 }
 
 .add-player-btn:hover {
@@ -76,7 +77,7 @@ body {
 /* LEADERBOARD */
 .leaderboard-wrapper {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(1, 115, 229, 0.3);
     border-radius: 10px;
@@ -121,28 +122,72 @@ body {
     padding: 15px 20px;
     font-size: 14px;
     font-weight: 600;
+    vertical-align: middle;
 }
 
 .leaderboard td:first-child {
     font-weight: 900;
     font-size: 16px;
     color: #FFD700;
+    min-width: 50px;
 }
 
-.leaderboard td:nth-child(3) {
-    font-weight: 800;
-    letter-spacing: 1px;
+.leaderboard td:nth-child(2) {
+    min-width: 120px;
+    font-weight: 700;
 }
 
-.leaderboard td:nth-child(4) {
+/* RANKS CELL */
+.ranks-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    min-width: 300px;
+}
+
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background-color: rgba(1, 115, 229, 0.2);
+    border: 1px solid rgba(1, 115, 229, 0.4);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.rank-delete {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.rank-delete:hover {
+    opacity: 1;
+    color: #FF6B6B;
+}
+
+/* POINTS CELL */
+.points-cell {
     font-weight: 800;
     color: #00FF88;
     font-size: 15px;
+    min-width: 70px;
 }
 
 /* TIER COLORS */
-.tier-lt5 { color: #808080; }
-.tier-ht5 { color: #A9A9A9; }
+.tier-lt5 { color: #A0A0A0; }
+.tier-ht5 { color: #C0C0C0; }
 .tier-lt4 { color: #87CEEB; }
 .tier-ht4 { color: #00BFFF; }
 .tier-lt3 { color: #00FF00; }
@@ -164,6 +209,7 @@ body {
     font-weight: 700;
     transition: all 0.2s ease;
     font-family: "Poppins", sans-serif;
+    white-space: nowrap;
 }
 
 .delete-btn:hover {
@@ -291,6 +337,25 @@ body {
     color: white;
 }
 
+.rank-count {
+    padding: 10px 15px;
+    background-color: rgba(1, 115, 229, 0.15);
+    border: 1px solid rgba(1, 115, 229, 0.3);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.rank-count .info {
+    color: #00FF88;
+}
+
+.rank-count .warning {
+    color: #FF6B6B;
+    font-weight: 700;
+}
+
 .modal-footer {
     display: flex;
     gap: 10px;
@@ -381,6 +446,15 @@ body {
     .leaderboard td {
         padding: 10px 8px;
         font-size: 12px;
+    }
+
+    .ranks-cell {
+        min-width: 180px;
+    }
+
+    .rank-badge {
+        font-size: 11px;
+        padding: 5px 10px;
     }
 
     .modal-content {

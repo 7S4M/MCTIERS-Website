@@ -13,7 +13,7 @@
         <header class="navbar">
             <h1 class="title">MC TIERS LEADERBOARD</h1>
             <button class="add-player-btn" onclick="openAddPlayerModal()">
-                <i class="ri-add-line"></i> Add Player
+                <i class="ri-add-line"></i> Add Rank
             </button>
         </header>
 
@@ -24,7 +24,7 @@
                         <tr>
                             <th>RANK</th>
                             <th>PLAYER NAME</th>
-                            <th>TIER</th>
+                            <th>RANKS</th>
                             <th>POINTS</th>
                             <th>ACTION</th>
                         </tr>
@@ -34,21 +34,21 @@
                     </tbody>
                 </table>
                 <div id="empty-state" class="empty-state">
-                    <p>No players yet. Click "Add Player" to get started!</p>
+                    <p>No players yet. Click "Add Rank" to get started!</p>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Add Player Modal -->
+    <!-- Add Rank Modal -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Add Player</h2>
+                <h2>Add Rank to Player</h2>
                 <button class="close-btn" onclick="closeAddPlayerModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <input type="text" id="player-name" placeholder="Enter player name" class="input-field">
+                <input type="text" id="player-name" placeholder="Enter player name" class="input-field" autocomplete="off">
                 <select id="player-rank" class="input-field">
                     <option value="">Select a rank</option>
                     <option value="LT5">LT5 (1 Point)</option>
@@ -62,10 +62,11 @@
                     <option value="LT1">LT1 (45 Points)</option>
                     <option value="HT1">HT1 (60 Points)</option>
                 </select>
+                <div id="rank-count" class="rank-count"></div>
             </div>
             <div class="modal-footer">
                 <button class="btn-cancel" onclick="closeAddPlayerModal()">Cancel</button>
-                <button class="btn-add" onclick="addPlayer()">Add Player</button>
+                <button class="btn-add" onclick="addRank()">Add Rank</button>
             </div>
         </div>
     </div>
