@@ -1,314 +1,257 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-*, html, body, content {
-    width: 100%;
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    background: linear-gradient(252.44deg, #0C0223, #021723);
+    color: white;
+    min-height: 100vh;
 }
 
 .content {
-    height: 100vh;
-    background: linear-gradient(252.44deg, #0C0223, #021723);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* NAVBAR */
 .navbar {
     width: 100%;
-    height: 75px;
-    background-color: rgba(0, 0, 0, 0.25);
-}
-
-.nav-elements {
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
-    height: 75px;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 31px;
     justify-content: space-between;
     align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(1, 115, 229, 0.3);
 }
 
-.title {
-    font-size: 2.6vw;
-}
-
-.nav-elements li {
-    background-clip: text;
-    -webkit-background-clip: text;
-    list-style: none;
-    width: fit-content;
+.nav-title {
+    font-size: 24px;
     font-weight: 800;
-    text-align: center;
-    color: white;
+    letter-spacing: 2px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
 }
 
 .nav-button {
-    width: 150px;
+    width: 40px;
     height: 40px;
     background-color: #0173E5;
-    border-radius: 10px;
-    padding: 10px 30px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.ri-search-line {
-    width: 16px;
+.nav-button:hover {
+    background-color: #0156b3;
+    transform: scale(1.05);
 }
 
-.ri-account-circle-fill {
-    width: 16px;
+/* CONTAINER */
+.container {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-li div span {
-    width: fit-content;
-    height: fit-content;
-    font-size: 1.2vw;
+/* CONTROLS */
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
 }
 
-/*-------------------------------------------------*/
-
-.table {
-    position: relative;
-    top: 30px;
-    left: 30px;
-    width: calc(100vw - 60px);
-    height: calc(100vh - 135px);
-    background-color: rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    /*overflow: hidden;*/
+.category-select,
+.sort-select {
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(1, 115, 229, 0.5);
+    color: white;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.sortbar {
-    position: relative;
+.category-select:hover,
+.sort-select:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #0173E5;
+}
+
+.category-select:focus,
+.sort-select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #0173E5;
+}
+
+.category-select option,
+.sort-select option {
+    background-color: #021723;
+    color: white;
+}
+
+/* LEADERBOARD */
+.leaderboard-wrapper {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(1, 115, 229, 0.3);
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.leaderboard thead {
+    position: sticky;
     top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    width: calc(100vw - 60px);
-    height: 14%;
-    background-color: rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(1, 115, 229, 0.2), rgba(1, 115, 229, 0.1));
+    border-bottom: 2px solid rgba(1, 115, 229, 0.5);
 }
 
-.category-sorting {
-    position: absolute;
-    top: 50%;
-    left: 29.5%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2.4vw;
-    font-weight: 800;
-    text-align: center;
-    width: fit-content;
-    background: none;
-    border: none;
+.leaderboard th {
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #0173E5;
 }
 
-.category-sorting:focus {
-    outline: none;
+.leaderboard tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
 }
 
-.filter-sorting {
-    position: absolute;
-    top: 50%;
-    left: 69.5%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2.4vw;
-    font-weight: 800;
-    text-align: center;
-    width: fit-content;
-    background: none;
-    border: none;
+.leaderboard tbody tr:hover {
+    background-color: rgba(1, 115, 229, 0.15);
 }
 
-.filter-sorting:focus {
-    outline: none;
+.leaderboard td {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-.select-option {
-    color: #111;
-    font-size: 1vw;
+.leaderboard tbody tr:nth-child(1) td:first-child {
+    color: #FFD700;
+}
+
+.leaderboard tbody tr:nth-child(2) td:first-child {
+    color: #C0C0C0;
+}
+
+.leaderboard tbody tr:nth-child(3) td:first-child {
+    color: #CD7F32;
+}
+
+/* TIER COLORS */
+.leaderboard tbody tr td:nth-child(3) {
     font-weight: 700;
 }
 
-.info-sortbar {
-    position: absolute;
-    top: 50%;
-    left: 90%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2.4vw;
-    font-weight: 800;
-    text-align: center;
-    width: fit-content;
+.leaderboard tbody tr:nth-child(1) td:nth-child(3),
+.leaderboard tbody tr:nth-child(2) td:nth-child(3) {
+    color: #FFD700;
 }
 
-.separator {
-    position: absolute;
-    width: 0px;
-    height: calc(100% - 20px);
-    top: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%);
+.leaderboard tbody tr:nth-child(3) td:nth-child(3),
+.leaderboard tbody tr:nth-child(4) td:nth-child(3),
+.leaderboard tbody tr:nth-child(5) td:nth-child(3) {
+    color: #00FF88;
 }
 
-.first-sep {
-    position: absolute;
-    left: 59%;
+.leaderboard tbody tr:nth-child(6) td:nth-child(3),
+.leaderboard tbody tr:nth-child(7) td:nth-child(3),
+.leaderboard tbody tr:nth-child(8) td:nth-child(3) {
+    color: #00CCFF;
 }
 
-.second-sep {
-    position: absolute;
-    left: 81%;
+.leaderboard tbody tr:nth-child(9) td:nth-child(3),
+.leaderboard tbody tr:nth-child(10) td:nth-child(3) {
+    color: #FF6B6B;
 }
 
-/*--------------------------------------------------*/
-
-.list-names {
-    position: relative;
-    left: 20px;
-    top: 6%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(100% - 40px);
-    margin: 0;
-    padding: 0;
+/* SCROLLBAR STYLING */
+.leaderboard-wrapper::-webkit-scrollbar {
+    width: 8px;
 }
 
-.list-name {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    width: 19%;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-size: 2.4vw;
-    text-align: center;
+.leaderboard-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.name-dropdown {
-    display: none;
+.leaderboard-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(1, 115, 229, 0.5);
+    border-radius: 4px;
 }
 
-/*--------------------------------------------------*/
-
-.player-lists {
-    position: relative;
-    left: 20px;
-    top: calc(16% - 65px);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(100% - 40px);
-    height: 70%;
-    margin: 0;
-    padding: 0;
+.leaderboard-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(1, 115, 229, 0.8);
 }
 
-.player-list {
-    position: relative;
-    width: 19%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    margin: 0;
-    padding: 0;
-}
-
-/*--------------------------------------------------*/
-
-@media screen and (max-width: 950px) {
-    * {
-        box-sizing: border-box;
-        width: 100vw;
-    }
-
+/* RESPONSIVE */
+@media (max-width: 768px) {
     .navbar {
-        height: 50px;
+        padding: 0 20px;
+        height: 60px;
     }
 
-    .nav-elements {
-        padding: 5px;
-        height: 50px;
+    .nav-title {
+        font-size: 18px;
     }
 
-    .nav-button {
-        padding: 10px 10px;
+    .container {
+        padding: 20px;
     }
 
-    .nav-button {
-        width: fit-content;
-        height: fit-content;
+    .leaderboard {
+        font-size: 12px;
     }
 
-    body div header ul li div span {
-        display: none;
+    .leaderboard th {
+        padding: 10px 12px;
+        font-size: 11px;
     }
 
-    /*-------------------------------------------------*/
-
-    .table {
-        top: 10px;
-        left: 10px;
-        width: calc(100vw - 20px);
-        height: calc(100% - 70px);
+    .leaderboard td {
+        padding: 8px 12px;
+        font-size: 12px;
     }
 
-    .sortbar {
-        width: calc(100vw - 20px);
-        height: 9%;
+    .controls {
+        flex-wrap: wrap;
     }
 
-    .category-sorting {
-        left: 50%;
-    }
-
-    .first-sep, .filter-sorting, .second-sep, .info-sortbar {
-        display: none;
-    }
-
-    .name-dropdown {
-        display: block;
-        position: absolute;
-        top: 13.4%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 6%;
-        width: fit-content;
-        height: fit-content;
-        color: white;
-        font-size: 2.4vw;
-        font-weight: 800;
-        text-align: center;
-        width: fit-content;
-        background: none;
-        border: none;
-    }
-
-    .name-dropdown:focus {
-        outline: none;
-    }
-
-    .non-responsive {
-        display: none;
-    }
-
-    .responsive-column {
-        position: absolute;
-        left: -10px;
-        top: 6.6%;
-        width: calc(100vw - 40px);
-        height: calc(100vh  - 25.4% - 80px);
+    .category-select,
+    .sort-select {
+        font-size: 12px;
+        padding: 8px 12px;
     }
 }
